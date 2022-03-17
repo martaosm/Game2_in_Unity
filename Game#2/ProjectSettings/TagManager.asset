@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - SideWall
+  - Apple
+  - Pineapple
+  - Melon
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -41,6 +45,9 @@ TagManager:
   m_SortingLayers:
   - name: Background
     uniqueID: 2631127643
+    locked: 0
+  - name: OverBackground
+    uniqueID: 3348448061
     locked: 0
   - name: Default
     uniqueID: 0
