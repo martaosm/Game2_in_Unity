@@ -9,6 +9,8 @@ TagManager:
   - Pineapple
   - Melon
   - Trap
+  - JumpPlatform
+  - Fan
   layers:
   - Default
   - TransparentFX

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     private float speed = 7f;
     private int counter = 0;
     [SerializeField] private LayerMask jumpGround;
+
+    [SerializeField] private AudioSource jumpSound;
+    [SerializeField] private AudioSource jumpPlatform;
     private enum MovementState { idle, jump, fall, run, doubleJump };
 
     void Start()
@@ -21,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         player = GetComponent<SpriteRenderer>();
         animation = GetComponent<Animator>();
         coll = GetComponent<BoxCollider2D>();
+        //jumpSound = GetComponent<AudioSource>();
     }
 
 
@@ -32,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         {
             counter++;
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpSound.Play();
 
         }
         if (IsGrounded())
@@ -80,5 +86,21 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpGround);
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag(("JumpPlatform")))
+        {
+            jumpPlatform.Play();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Fan"))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 10f);
+        }
     }
 }

@@ -10,6 +10,7 @@ public class ItemCollector : MonoBehaviour
     private int melons = 0;
     private int points = 0;
     [SerializeField] private Text pointsText;
+    [SerializeField] private AudioSource pointsSound;
     void Update()
     {
         OnTriggerEnter2D(GetComponent<Collider2D>());
@@ -35,7 +36,7 @@ public class ItemCollector : MonoBehaviour
                 melons = melons + 20;
                 points = points + 20;
             }
-
+            pointsSound.Play();
             pointsText.text = "Points: " + points;
         }
     }
