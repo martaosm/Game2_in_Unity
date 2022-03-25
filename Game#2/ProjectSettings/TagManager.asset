@@ -12,6 +12,9 @@ TagManager:
   - JumpPlatform
   - Fan
   - Switch
+  - Fire
+  - Ladder
+  - RampSwitch
   layers:
   - Default
   - TransparentFX

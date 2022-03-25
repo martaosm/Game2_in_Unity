@@ -6,15 +6,14 @@ using UnityEngine.UI;
 
 public class OnAndOff : MonoBehaviour
 {
-    //public BoxCollider2D box;
-    public BoxCollider2D[] fire;
     public Collider2D swi;
-    //public GameObject fireTrapButton;
     public Animator[] anima;
     public bool isOn = true;
     private bool timerOn = false;
     public float timeToJump = 5f;
     public Text timerText;
+
+    public GameObject fire;
 
     private void Start()
     {
@@ -46,11 +45,7 @@ public class OnAndOff : MonoBehaviour
                 
             }
 
-            for (int i = 0; i < fire.Length; i++)
-            {
-                fire[i].enabled = false;
-            }
-            
+            fire.GetComponent<Collider2D>().enabled = false;
             timerOn = true;
         }
         
@@ -72,11 +67,7 @@ public class OnAndOff : MonoBehaviour
                 anima[i].SetBool("on",true);
                 
             }
-
-            for (int i = 0; i < fire.Length; i++)
-            {
-                fire[i].enabled = true;
-            }
+            fire.GetComponent<Collider2D>().enabled = true;
             timerOn = false;
             timerText.enabled = false;
         }

@@ -62,12 +62,11 @@
      <Compile Include="Assets\Scripts\JumpPlatform.cs" />
      <Compile Include="Assets\Scripts\EndMenu.cs" />
      <Compile Include="Assets\Scripts\ItemCollector.cs" />
-     <Compile Include="Assets\Scripts\CameraController.cs" />
-     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\RotateAround.cs" />
      <Compile Include="Assets\Scripts\OnAndOff.cs" />
-     <Compile Include="Assets\fireButton.cs" />
-     <Compile Include="Assets\fireTrap.cs" />
+     <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Ladder.cs" />
      <None Include="Assets\Sounds\CasualGameBGM05\ReadMe.txt" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.23f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
