@@ -15,6 +15,8 @@ public class OnAndOff : MonoBehaviour
 
     public GameObject fire;
 
+    public int id;
+
     private void Start()
     {
         for (int i = 0; i < anima.Length; i++)
@@ -22,58 +24,59 @@ public class OnAndOff : MonoBehaviour
             anima[i].SetBool("on",true); 
             anima[i].SetBool("off",false); 
         }
-        
-    }
+        GameEvents.current.onFireTriggerEnter += onSwitchEnter;
 
+    }
     private void Update()
     {
-        OnTriggerEnter2D(swi);
         if (timerOn == true)
         {
             timer();
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
+        if (timerOn == false)
         {
+            timeToJump = 5f;
+        }
+    }
+    private void onSwitchEnter(int id)
+    {
+        if (id == this.id)
+        {
+
             for (int i = 0; i < anima.Length; i++)
             {
-                anima[i].SetBool("off",true); 
-                anima[i].SetBool("on",false);
-                
+                anima[i].SetBool("off", true);
+                anima[i].SetBool("on", false);
+
             }
 
             fire.GetComponent<Collider2D>().enabled = false;
             timerOn = true;
         }
-        
     }
 
     private void timer()
-    {
+    { 
         timerText.enabled = true;
         if (timeToJump > 0)
         {
             timeToJump -= Time.deltaTime;
         }
-
+    
         if (timeToJump < 0)
         {
             for (int i = 0; i < anima.Length; i++)
-            {
+            { 
                 anima[i].SetBool("off",false); 
                 anima[i].SetBool("on",true);
-                
             }
             fire.GetComponent<Collider2D>().enabled = true;
             timerOn = false;
             timerText.enabled = false;
         }
-
+    
         double x = System.Math.Round(timeToJump, 0);
         timerText.text = x.ToString();
     }
-
 }

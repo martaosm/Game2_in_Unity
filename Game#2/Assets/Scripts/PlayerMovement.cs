@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float speed = 7f;
     private int counter = 0;
     [SerializeField] private LayerMask jumpGround;
+    public GameObject ramp;
 
     [SerializeField] private AudioSource jumpSound;
     [SerializeField] private AudioSource jumpPlatform;
@@ -106,24 +107,28 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("Ladder"))
         {
+            Physics2D.gravity = Vector2.zero;
             float dirY = Input.GetAxisRaw("Vertical");
             if (Input.GetKey("up"))
             {
-                Physics2D.gravity = Vector2.zero;
-                rb.velocity = new Vector2(rb.velocity.x, dirY*speed);
+                rb.velocity = new Vector2(0, dirY*speed);
+                //ramp.GetComponent<Collider2D>().isTrigger = true;
             }
 
             if (Input.GetKeyUp("up"))
             {
                 rb.velocity = new Vector2(0, 0);
+                //ramp.GetComponent<Collider2D>().isTrigger = false;
             }
             if (Input.GetKey("down") && !IsGrounded())
             {
                 rb.velocity = new Vector2(0, dirY*speed);
+                //ramp.GetComponent<Collider2D>().isTrigger = true;
             }
             if (Input.GetKeyUp("down"))
             {
                 rb.velocity = new Vector2(0, 0);
+                //ramp.GetComponent<Collider2D>().isTrigger = false;
             }
             if (IsGrounded())
             {
