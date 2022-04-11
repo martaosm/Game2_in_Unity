@@ -9,3 +9,4 @@ Rules:
 - pineapple = 10 points
 - melon = 20 points
 - more levels to come :)
+![image](https://user-images.githubusercontent.com/56367868/162811076-57a595d6-dbe4-47ac-b0b4-d4eac6d95eaa.png)
