@@ -15,6 +15,7 @@ TagManager:
   - Fire
   - Ladder
   - RampSwitch
+  - WallToJump
   layers:
   - Default
   - TransparentFX

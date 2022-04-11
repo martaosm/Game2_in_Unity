@@ -67,7 +67,7 @@
      <Compile Include="Assets\Scripts\GameEvents.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\Ladder.cs" />
+     <Compile Include="Assets\OptionsMenu.cs" />
      <None Include="Assets\Sounds\CasualGameBGM05\ReadMe.txt" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.23f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

@@ -95,6 +95,21 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpPlatform.Play();
         }
+
+        if (col.gameObject.CompareTag("WallToJump"))
+        {
+            Physics2D.gravity = Vector2.zero;
+            animation.SetBool("wallJump",true);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("WallToJump"))
+        {
+            animation.SetBool("wallJump",false);
+            Physics2D.gravity = new Vector2(0, -9.8f);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -107,28 +122,17 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("Ladder"))
         {
-            Physics2D.gravity = Vector2.zero;
+            //ramp.GetComponent<Collider2D>().isTrigger = true;
             float dirY = Input.GetAxisRaw("Vertical");
-            if (Input.GetKey("up"))
+            if (Input.GetKey("up")||(Input.GetKey("down") && !IsGrounded()))
             {
-                rb.velocity = new Vector2(0, dirY*speed);
-                //ramp.GetComponent<Collider2D>().isTrigger = true;
+                rb.velocity = new Vector2(0, dirY * speed);
+                
             }
-
-            if (Input.GetKeyUp("up"))
+            else
             {
+                Physics2D.gravity = Vector2.zero;
                 rb.velocity = new Vector2(0, 0);
-                //ramp.GetComponent<Collider2D>().isTrigger = false;
-            }
-            if (Input.GetKey("down") && !IsGrounded())
-            {
-                rb.velocity = new Vector2(0, dirY*speed);
-                //ramp.GetComponent<Collider2D>().isTrigger = true;
-            }
-            if (Input.GetKeyUp("down"))
-            {
-                rb.velocity = new Vector2(0, 0);
-                //ramp.GetComponent<Collider2D>().isTrigger = false;
             }
             if (IsGrounded())
             {
@@ -142,6 +146,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Ladder"))
         {
             Physics2D.gravity = new Vector2(0, -9.8f);
+            //ramp.GetComponent<Collider2D>().isTrigger = false;
         }
     }
 }

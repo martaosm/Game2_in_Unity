@@ -4,15 +4,19 @@ ScriptsOnlyBuild:
     - CameraController
     - EndMenu
     - Finish
+    - GameEvents
     - ItemCollector
     - JumpPlatform
     - MovingPlatform
+    - OnAndOff
+    - OptionsMenu
     - PlayerLife
     - PlayerMovement
     - RestartMenu
     - Rotate
     - StartMenu
     - StickyPlatform
+    - TriggerArea
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
@@ -20,7 +24,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
-    - UnityEditor.Tilemaps.GridBrushEditor
     - UnityEditor.Tilemaps.GridPaintPaletteClipboard
     - UnityEditor.Tilemaps.GridPaintPaletteWindow
     - UnityEditor.Tilemaps.GridPaintingState
@@ -37,8 +40,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -152,6 +157,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1460}
     - Class: 114
+      Script: {instanceID: 1526}
+    - Class: 114
       Script: {instanceID: 2392}
     - Class: 114
       Script: {instanceID: 2580}
@@ -170,13 +177,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3396}
     - Class: 114
+      Script: {instanceID: 3458}
+    - Class: 114
       Script: {instanceID: 3676}
     - Class: 114
       Script: {instanceID: 4004}
     - Class: 114
-      Script: {instanceID: 5328}
+      Script: {instanceID: 5334}
     - Class: 114
-      Script: {instanceID: 5360}
+      Script: {instanceID: 5366}
+    - Class: 114
+      Script: {instanceID: 25850}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -222,6 +233,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
+    - Class: 62
+      Script: {instanceID: 0}
     - Class: 66
       Script: {instanceID: 0}
     - Class: 74
@@ -243,6 +256,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1460}
     - Class: 114
+      Script: {instanceID: 1526}
+    - Class: 114
       Script: {instanceID: 2392}
     - Class: 114
       Script: {instanceID: 2580}
@@ -253,13 +268,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3086}
     - Class: 114
+      Script: {instanceID: 3138}
+    - Class: 114
       Script: {instanceID: 3396}
+    - Class: 114
+      Script: {instanceID: 3458}
+    - Class: 114
+      Script: {instanceID: 3676}
     - Class: 114
       Script: {instanceID: 4004}
     - Class: 114
-      Script: {instanceID: 5328}
+      Script: {instanceID: 4282}
     - Class: 114
-      Script: {instanceID: 5360}
+      Script: {instanceID: 4514}
+    - Class: 114
+      Script: {instanceID: 4656}
+    - Class: 114
+      Script: {instanceID: 5334}
+    - Class: 114
+      Script: {instanceID: 5366}
+    - Class: 114
+      Script: {instanceID: 25850}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -746,6 +775,12 @@ ScriptsOnlyBuild:
     className: EventTrigger
   - hash:
       serializedVersion: 2
+      Hash: e9e45706323a0f3e502e9d8ac59ccda3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: OnAndOff
+  - hash:
+      serializedVersion: 2
       Hash: 87cef3c82381dc586f6772c3e27561b6
     assemblyName: Unity.2D.Animation.Runtime.dll
     namespaceName: UnityEngine.Experimental.U2D.Animation
@@ -776,6 +811,12 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: 2ecdbe75f54c8965e9d317f6c9a2e0e3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TriggerArea
+  - hash:
+      serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -786,6 +827,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.SpriteShape.Runtime.dll
     namespaceName: 
     className: SpriteShapeGeometryCache
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameEvents
   - hash:
       serializedVersion: 2
       Hash: b424b4eeb810aecb0ff91c62639241e9
@@ -884,7 +931,7 @@ ScriptsOnlyBuild:
     className: CameraController
   - hash:
       serializedVersion: 2
-      Hash: dcee5bbe00b1b534a250cc2ca4eba237
+      Hash: 6e91613ca7034aeb29ae92b7f443809d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
@@ -924,11 +971,17 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: FabrikSolver2D
+  - hash:
+      serializedVersion: 2
+      Hash: 0db523909875a7253dfcfc60f625427c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: OptionsMenu
   platform: 19
   scenePathNames:
   - Assets/Scenes/Start.unity
   - Assets/Scenes/Level 1.unity
   - Assets/Scenes/Level2.unity
   - Assets/Scenes/End.unity
-  playerPath: C:/Users/marta/OneDrive/Pulpit/uwu/Repos/Game2_in_Unity/Game#2/Game
+  playerPath: C:/Users/marta/OneDrive/Pulpit/uwu/Repos/Pink_Guy_in_Unity/Game#2/Game
     Files/Game#2.exe
